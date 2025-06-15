@@ -1,0 +1,45 @@
+{
+  "name": "ai-powered-code-converter",
+  "version": "1.0.0",
+  "description": "An AI Powered Code Converter For Developers",
+  "keywords": [
+  "ai",
+  "code converter",
+  "code translation",
+  "language model",
+  "langchain",
+  "openai",
+  "llm",
+  "gpt",
+  "nodejs",
+  "express",
+  "code tools",
+  "developer tools",
+  "machine learning",
+  "natural language processing",
+  "programming languages",
+  "automated translation",
+  "multi-language support",
+  "software engineering",
+  "source code",
+  "code refactoring"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "author": "Harsh Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "langchain": "^0.3.28"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3"
+  }
+}
