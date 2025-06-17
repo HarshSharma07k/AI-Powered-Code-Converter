@@ -1,3 +1,5 @@
+import { userPrompt, model } from "../chains/codeConverter.chain.js";
+
 export const convertCode = async (req, res) => {
   try {
     let { source_language, target_language, code } = req.body;
@@ -11,17 +13,17 @@ export const convertCode = async (req, res) => {
       source_language = detectionResponse.response.trim();
       console.log(`Detected source language: ${source_language}`);
     }
+    
+    const myPrompt = (await userPrompt.format({code: code, targetLanguage: target_language}))?.content;
 
-    const conversionResponse = await codeConverterChain.call({
-      source_language,
-      target_language,
-      code,
-    });
+    const conversionResponse = await model.invoke(myPrompt)?.response;
+
+    console.log(`Models Output Is : ${conversionResponse}`);
 
     res.json({
       source_language,
       target_language,
-      converted_code: conversionResponse.response.trim(),
+      converted_code: conversionResponse.trim(),
     });
   } catch (error) {
     console.error("Conversion error:", error);
